@@ -41,8 +41,22 @@
                 Cursor="Arrow"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 TextWrapping="Wrap" />
-        <ComboBox x:Name="BagCB" Grid.Row="1" Grid.Column="2"/>
-        <Button x:Name="ConfirmBtn" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Content="Оформить передачку" FontSize="16" Cursor="Hand"/>
+        <ComboBox x:Name="BagCB" Foreground="White" ItemsSource="{Binding bugs}" Grid.Row="1" Grid.Column="2">
+            <!--<Run Text="{Binding bugs.name}"/>-->
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock >
+                            <Run Text="{Binding name}"></Run>
+                            <Run Text="{Binding bugDesc.description}"></Run>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+
+            <!--<Run Text="{Binding bugs.bugDesc.description}"/>-->
+        </ComboBox>
+        <Button x:Name="ConfirmBtn" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Content="Оформить передачку" FontSize="16" Cursor="Hand" Click="ConfirmBtn_Click"/>
         <Button x:Name="showPrisonerBtn" Grid.Row="0" Grid.Column="1" Content="Заключенные" Click="showPrisonerBtn_Click"/>
     </Grid>
 </Page>

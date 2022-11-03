@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrisonTrade.BD;
 
 namespace PrisonTrade.Pages
 {
@@ -27,12 +28,43 @@ namespace PrisonTrade.Pages
 
         private void loginbtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPagePrisoner());
+            if (loginTb.Text =="" || Password.Text == "")
+            {
+                MessageBox.Show("Заполните все поля!");
+            } else
+            {
+                int log = Convert.ToInt32(loginTb.Text);
+                People people = bd_connection.connection.People.FirstOrDefault(p => (int)p.id == log && p.Password == Password.Text);
+                if (people == null)
+                {
+                    MessageBox.Show("Пользователь не найден");
+                } else
+                {
+                    NavigationService.Navigate(new MainPagePrisoner(people));
+                }
+            }
         }
 
         private void loginbtnEmp_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPageEmp());
+            if (loginTb.Text == "" || Password.Text == "")
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+            else
+            {
+                int log = Convert.ToInt32(loginTb.Text);
+                Employee emp = bd_connection.connection.Employee.FirstOrDefault(p => (int)p.id == log && p.Password == Password.Text);
+                if (emp == null)
+                {
+                    MessageBox.Show("Пользователь не найден");
+                }
+                else
+                {
+                    NavigationService.Navigate(new MainPageEmp());
+                }
+            }
+            
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrisonTrade.BD;
 
 namespace PrisonTrade.Pages
 {
@@ -20,9 +21,12 @@ namespace PrisonTrade.Pages
     /// </summary>
     public partial class MainPageEmp : Page
     {
+        List<Trade> trades = bd_connection.connection.Trade.ToList();
         public MainPageEmp()
         {
             InitializeComponent();
+            this.DataContext = this;
+            tradeList.ItemsSource = trades;
         }
 
         private void prisionerPage_Click(object sender, RoutedEventArgs e)

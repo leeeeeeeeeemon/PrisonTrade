@@ -31,8 +31,17 @@
         </Grid.ColumnDefinitions>
         <Label Content="ПодслушанноТюрьма" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Image Source="/img/pngegg (1).png" Grid.Row="0" Grid.Column="0"/>
-        <ListView x:Name="prisionerList" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            
+        <ListView x:Name="prisionerList" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding peoples}" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Логин" DisplayMemberBinding="{Binding id}"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
+                    <GridViewColumn Header="Кличка" DisplayMemberBinding="{Binding Nickname}"/>
+                    <GridViewColumn Header="Тюрьма" DisplayMemberBinding="{Binding Prison.Name}"/>
+
+                </GridView>
+            </ListView.View> 
             
         </ListView>
         <Button x:Name="goBackBtn" Grid.Row="1" VerticalAlignment="Center" Margin="5" Content="Назад" Click="goBackBtn_Click" Cursor="Hand"/>
