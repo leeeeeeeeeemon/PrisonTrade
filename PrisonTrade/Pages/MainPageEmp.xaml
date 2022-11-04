@@ -37,10 +37,11 @@
         <ListView x:Name="tradeList" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding trades}" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
-                    <GridViewColumn Header="Кличка" DisplayMemberBinding="{Binding Nickname}"/>
-                    <GridViewColumn Header="Куда" DisplayMemberBinding="{Binding Prison.Name}"/>
+                    <GridViewColumn Header="От кого" DisplayMemberBinding="{Binding People.Surname}"/>
+                    <GridViewColumn Header="" DisplayMemberBinding="{Binding People.Name}"/>
+                    <GridViewColumn Header="Кому" DisplayMemberBinding="{Binding People1.Surname}"/>
+                    <GridViewColumn Header=" " DisplayMemberBinding="{Binding People1.Name}"/>
+                    <GridViewColumn Header="Что" DisplayMemberBinding="{Binding bug.name}"/>
 
                 </GridView>
             </ListView.View>

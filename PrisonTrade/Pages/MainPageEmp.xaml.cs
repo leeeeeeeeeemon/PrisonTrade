@@ -27,6 +27,8 @@ namespace PrisonTrade.Pages
             InitializeComponent();
             this.DataContext = this;
             tradeList.ItemsSource = trades;
+            //Trade f = bd_connection.connection.Trade.FirstOrDefault();
+            
         }
 
         private void prisionerPage_Click(object sender, RoutedEventArgs e)
