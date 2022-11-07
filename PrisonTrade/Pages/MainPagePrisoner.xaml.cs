@@ -21,13 +21,13 @@ namespace PrisonTrade.Pages
     public partial class MainPagePrisoner : Page
     {
         People pplID;
-        public static List<bug> bugs;
-        List<bugDesc> des = bd_connection.connection.bugDesc.ToList();
+        //public static List<bug> bugs;
+        List<bugDesc> bugs; //= bd_connection.connection.bugDesc.ToList();
         public MainPagePrisoner(People id)
         {
             pplID = id;
             InitializeComponent();
-            bugs = bd_connection.connection.bug.ToList();
+            bugs = bd_connection.connection.bugDesc.ToList();
             this.DataContext = this;
             BagCB.ItemsSource = bugs;
         }

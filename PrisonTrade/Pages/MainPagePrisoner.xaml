@@ -47,8 +47,7 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock >
-                            <Run Text="{Binding name}"></Run>
-                            <Run Text="{Binding bugDesc.description}"></Run>
+                            <Run Text="{Binding description}"></Run>
                         </TextBlock>
                     </StackPanel>
                 </DataTemplate>
